@@ -10,7 +10,7 @@ source:
   sha256: 455956bacf2d48d7bcb457e3f1ae8a9e1b1634feebc3328254ed1950a891e450
 
 build:
-  number: 0
+  number: 1
   python:
     version_independent: true
   script:
@@ -58,9 +58,6 @@ requirements:
     - python
     - anywidget
     - ipywidgets >=8
-  ignore_run_exports:
-    from_package:
-      - cross-python_${{ target_platform }}
 
 tests:
   - python:
