@@ -1,5 +1,5 @@
 context:
-  version: "0.1.1"
+  version: "0.4.0"
 
 package:
   name: nbplay
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/n/nbplay/nbplay-${{ version }}.tar.gz
-  sha256: 455956bacf2d48d7bcb457e3f1ae8a9e1b1634feebc3328254ed1950a891e450
+  sha256: 82a17010423bfc52021d4048b66342aff9eef2db020c139bbdc311ebb19add7b
 
 build:
-  number: 1
+  number: 0
   python:
     version_independent: true
   script:
@@ -36,11 +36,11 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler('rust') }}
     - rust-std-wasm32-unknown-unknown
-    - wasm-bindgen-cli ==0.2.121
+    - wasm-bindgen-cli ==0.2.129
     - cargo-bundle-licenses
     - if: linux
       then:
-        - pkg-config
+        - pkgconf
   host:
     - python
     - pip
@@ -53,11 +53,17 @@ requirements:
         - alsa-lib
     - if: is_abi3
       then:
-      - python-abi3
+        - python-abi3
   run:
     - python
     - anywidget
     - ipywidgets >=8
+    - spaday >=0.14.1
+    - spaday-regular-layout
+    - starlette
+    - transports >=0.12.2
+    - uvicorn
+    - websockets
 
 tests:
   - python:
